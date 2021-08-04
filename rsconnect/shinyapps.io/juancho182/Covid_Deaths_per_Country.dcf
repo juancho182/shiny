@@ -1,0 +1,13 @@
+name: Covid_Deaths_per_Country
+title: Covid_Deaths_per_Country
+username:
+account: juancho182
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4454458
+bundleId: 4885844
+url: https://juancho182.shinyapps.io/Covid_Deaths_per_Country/
+when: 1628044027.43688
+lastSyncTime: 1628044027.43688
+asMultiple: FALSE
+asStatic: FALSE
