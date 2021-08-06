@@ -23,7 +23,7 @@ shinyUI(fluidPage(
                         min = 0,
                         max = 650000,
                         value = c(20000,50000)),
-            h5("Help: The chart on the right will show one bar per country with the total covid 19 deaths up to July 31th, 2021. Use the slider to filter the countries with the number of deaths you are interested in. If there are too many bars, country names may not fit the plot.")
+            h5("Help: The chart on the right will show one bar per country with the total covid 19 deaths up to July 31th, 2021. Use the slider to filter the countries with the number of deaths you are interested in. If there are too many bars, country names may not fit the plot. Source code: https://github.com/juancho182/shiny")
         ),
 
         # Show a plot of the generated distribution
