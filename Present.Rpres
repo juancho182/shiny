@@ -1,0 +1,70 @@
+Present
+========================================================
+author: Juan Noval
+date: 6/Aug/21
+autosize: true
+
+Index
+========================================================
+
+Reproducible Pitch Presentation
+
+- Describe shiny app
+- Show code
+- Show chart
+
+Description
+========================================================
+
+This shiny app Covid Deaths by Country enables the user to select the range of deaths so only the countries with deaths among that range will be shown in the chart.
+
+Code - ui.R
+========================================================
+
+The shiny app has ui.R with the following code
+```{r}
+library(shiny)
+shinyUI(fluidPage(
+    titlePanel("Covid Deaths by Country"),
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("deaths",
+                        "Number of deaths:",
+                        min = 0, max = 650000, value = c(20000,50000)),
+            h5("Help: ...")
+        ),
+        mainPanel(
+            plotOutput("distPlot")
+        )
+    )
+))
+```
+
+Code - server.R
+========================================================
+
+The shiny app has server.R with the following code
+```{r}
+library(shiny)
+shinyServer(function(input, output) {
+    output$distPlot <- renderPlot({
+        x    <- read.csv("coviddata2.csv",sep=",",header = TRUE)
+        min  <- input$deaths[1]
+        max  <- input$deaths[2]
+        x    <- subset(x, Deaths>=min & Deaths<=max)
+        barplot(x[,2],  
+                ylab="Country", 
+                xlab="Deaths",
+                horiz=TRUE,
+                names.arg=x[,1]) 
+
+    })
+})
+```
+
+
+Output
+========================================================
+
+The plot can be found at https://juancho182.shinyapps.io/Covid_Deaths_per_Country/
+The code can be found at https://github.com/juancho182/shiny
